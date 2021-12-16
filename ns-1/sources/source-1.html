@@ -1,0 +1,274 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Feature.featureBoard</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">&lt;empty package name&gt;</a>
+</div>
+
+<h1>Coverage Summary for Class: Feature.featureBoard (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Feature.featureBoard</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    98.4%
+  </span>
+  <span class="absValue">
+    (126/128)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;import org.junit.Assert;
+<i class="no-highlight">2</i>&nbsp;import org.junit.Test;
+<i class="no-highlight">3</i>&nbsp;import org.openqa.selenium.*;
+<i class="no-highlight">4</i>&nbsp;import org.openqa.selenium.chrome.ChromeDriver;
+<i class="no-highlight">5</i>&nbsp;import org.openqa.selenium.interactions.Actions;
+<i class="no-highlight">6</i>&nbsp;import org.openqa.selenium.support.ui.ExpectedConditions;
+<i class="no-highlight">7</i>&nbsp;import org.openqa.selenium.support.ui.Select;
+<i class="no-highlight">8</i>&nbsp;import org.openqa.selenium.support.ui.WebDriverWait;
+<i class="no-highlight">9</i>&nbsp;import org.openqa.selenium.WebDriver;
+<i class="no-highlight">10</i>&nbsp;import org.openqa.selenium.WebElement;
+<i class="no-highlight">11</i>&nbsp;
+<b class="fc"><i class="no-highlight">12</i>&nbsp;public class Feature.featureBoard {</b>
+<i class="no-highlight">13</i>&nbsp;
+<i class="no-highlight">14</i>&nbsp;    @Test
+<i class="no-highlight">15</i>&nbsp;    public void Test() throws InterruptedException {
+<b class="fc"><i class="no-highlight">16</i>&nbsp;        System.setProperty(&quot;webdriver.chrome.driver&quot;, &quot;resources/chromedriver.exe&quot;);</b>
+<b class="fc"><i class="no-highlight">17</i>&nbsp;        WebDriver driver = new ChromeDriver();</b>
+<b class="fc"><i class="no-highlight">18</i>&nbsp;        driver.manage().window().maximize();</b>
+<b class="fc"><i class="no-highlight">19</i>&nbsp;        driver.get(&quot;https://staging.cicle.app/signin&quot;);</b>
+<i class="no-highlight">20</i>&nbsp;
+<i class="no-highlight">21</i>&nbsp;//--Login Cicle
+<b class="fc"><i class="no-highlight">22</i>&nbsp;        WebElement btnSignIn = driver.findElement(By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div[2]/div/div[2]/div/div/button[1]/div/span&quot;));</b>
+<b class="fc"><i class="no-highlight">23</i>&nbsp;        btnSignIn.click();</b>
+<b class="fc"><i class="no-highlight">24</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">25</i>&nbsp;        WebElement email = driver.findElement(By.id(&quot;identifierId&quot;));</b>
+<b class="fc"><i class="no-highlight">26</i>&nbsp;        email.sendKeys(&quot;zzxxahmad92@gmail.com&quot;);</b>
+<b class="fc"><i class="no-highlight">27</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">28</i>&nbsp;        WebElement btnNextemail = driver.findElement(By.xpath(&quot;//*[@id=\&quot;identifierNext\&quot;]/div/button/span&quot;));</b>
+<b class="fc"><i class="no-highlight">29</i>&nbsp;        btnNextemail.click();</b>
+<b class="fc"><i class="no-highlight">30</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">31</i>&nbsp;        WebElement password = driver.findElement(By.xpath(&quot;//*[@id=\&quot;password\&quot;]/div[1]/div/div[1]/input&quot;));</b>
+<b class="fc"><i class="no-highlight">32</i>&nbsp;        password.sendKeys(&quot;resacantik&quot;);</b>
+<b class="fc"><i class="no-highlight">33</i>&nbsp;        WebElement checkbox = driver.findElement(By.id(&quot;c3&quot;));</b>
+<b class="fc"><i class="no-highlight">34</i>&nbsp;        checkbox.click();</b>
+<b class="fc"><i class="no-highlight">35</i>&nbsp;        WebElement btnNextpassword = driver.findElement(By.xpath(&quot;//*[@id=\&quot;passwordNext\&quot;]/div/button/span&quot;));</b>
+<b class="fc"><i class="no-highlight">36</i>&nbsp;        btnNextpassword.click();</b>
+<b class="fc"><i class="no-highlight">37</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">38</i>&nbsp;        String URL = driver.getCurrentUrl();</b>
+<b class="fc"><i class="no-highlight">39</i>&nbsp;        Assert.assertEquals(URL, &quot;https://staging.cicle.app/&quot;);</b>
+<b class="fc"><i class="no-highlight">40</i>&nbsp;        WebElement teamB = driver.findElement(By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div[2]/div/div[2]/div[4]/a/div/p&quot;));</b>
+<b class="fc"><i class="no-highlight">41</i>&nbsp;        teamB.click();</b>
+<b class="fc"><i class="no-highlight">42</i>&nbsp;        Thread.sleep(3000);</b>
+<i class="no-highlight">43</i>&nbsp;
+<i class="no-highlight">44</i>&nbsp;//--board BC-1
+<b class="fc"><i class="no-highlight">45</i>&nbsp;        WebDriverWait wait = new WebDriverWait(driver, 50000);</b>
+<b class="fc"><i class="no-highlight">46</i>&nbsp;        WebElement boardMenu = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(&quot;//*[@id=\&quot;root\&quot;]/div[2]/div/div[2]/div/div[3]/div[4]/a/div/div/div[1]&quot;)));</b>
+<b class="fc"><i class="no-highlight">47</i>&nbsp;        boardMenu.click();</b>
+<b class="fc"><i class="no-highlight">48</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">49</i>&nbsp;        WebElement cardA = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(&quot;//*[@id=\&quot;listcard_content-1\&quot;]/div/div/div/a&quot;)));</b>
+<b class="fc"><i class="no-highlight">50</i>&nbsp;        cardA.click();</b>
+<b class="fc"><i class="no-highlight">51</i>&nbsp;        WebElement comment = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(&quot;/html/body/div[5]/div/div/div[2]/div/div/div[1]/div[7]/div/div[1]/div[1]/div[2]/form/input&quot;)));</b>
+<b class="fc"><i class="no-highlight">52</i>&nbsp;        comment.click();</b>
+<b class="fc"><i class="no-highlight">53</i>&nbsp;        WebElement fillComment = driver.findElement(By.xpath(&quot;/html/body/div[5]/div/div/div[2]/div/div/div[1]/div[7]/div/div[1]/div[1]/div[2]/form/div[1]/div/div[2]/div/p&quot;));</b>
+<b class="fc"><i class="no-highlight">54</i>&nbsp;        fillComment.sendKeys(&quot;testtt&quot;);</b>
+<b class="fc"><i class="no-highlight">55</i>&nbsp;        WebElement btnSave = driver.findElement(By.xpath(&quot;/html/body/div[5]/div/div/div[2]/div/div/div[1]/div[7]/div/div[1]/div[1]/div[2]/form/div[2]/div/button/div&quot;));</b>
+<b class="fc"><i class="no-highlight">56</i>&nbsp;        btnSave.click();</b>
+<b class="fc"><i class="no-highlight">57</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">58</i>&nbsp;        String exp = &quot;Request failed with status code 500&quot;;</b>
+<b class="fc"><i class="no-highlight">59</i>&nbsp;        WebElement m = wait.until(ExpectedConditions.presenceOfElementLocated(By.id(&quot;notistack-snackbar&quot;)));</b>
+<b class="fc"><i class="no-highlight">60</i>&nbsp;        m.isDisplayed();</b>
+<b class="fc"><i class="no-highlight">61</i>&nbsp;        String act = m.getText();</b>
+<b class="fc"><i class="no-highlight">62</i>&nbsp;        System.out.println(&quot;Message is: Request failed with status code 500 &quot;+ act);</b>
+<i class="no-highlight">63</i>&nbsp;        //verify message with Assertion
+<b class="fc"><i class="no-highlight">64</i>&nbsp;        Assert.assertEquals(exp, act);</b>
+<i class="no-highlight">65</i>&nbsp;
+<i class="no-highlight">66</i>&nbsp;//--board BC-4
+<b class="fc"><i class="no-highlight">67</i>&nbsp;        String actualTitle = driver.getTitle();</b>
+<b class="fc"><i class="no-highlight">68</i>&nbsp;        String expectedTitle = &quot;A&quot;;</b>
+<b class="fc"><i class="no-highlight">69</i>&nbsp;        if(actualTitle.equalsIgnoreCase(expectedTitle))</b>
+<b class="fc"><i class="no-highlight">70</i>&nbsp;            System.out.println(&quot;Title Matched&quot;);</b>
+<i class="no-highlight">71</i>&nbsp;        else
+<b class="nc"><i class="no-highlight">72</i>&nbsp;            System.out.println(&quot;Title didn&#39;t match&quot;);</b>
+<b class="fc"><i class="no-highlight">73</i>&nbsp;        WebElement btnEdit = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(&quot;/html/body/div[5]/div/div/div[2]/div/div/div[1]/div[7]/div/div[1]/div[3]/div/div[2]/div[4]/div[1]/p&quot;)));</b>
+<b class="fc"><i class="no-highlight">74</i>&nbsp;        btnEdit.click();</b>
+<b class="fc"><i class="no-highlight">75</i>&nbsp;        WebElement editText = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(&quot;/html/body/div[5]/div/div/div[2]/div/div/div[1]/div[7]/div/div[1]/div[3]/div/div[2]/div[2]/div/form/div[1]/div/div[2]/div/p&quot;)));</b>
+<b class="fc"><i class="no-highlight">76</i>&nbsp;        editText.sendKeys(&quot;neww&quot;);</b>
+<b class="fc"><i class="no-highlight">77</i>&nbsp;        WebElement btnSaveedit = driver.findElement(By.xpath(&quot;/html/body/div[5]/div/div/div[2]/div/div/div[1]/div[7]/div/div[1]/div[3]/div/div[2]/div[2]/div/form/div[2]/div/button/div&quot;));</b>
+<b class="fc"><i class="no-highlight">78</i>&nbsp;        btnSaveedit.click();</b>
+<i class="no-highlight">79</i>&nbsp;
+<i class="no-highlight">80</i>&nbsp;// harus direfresh supaya tidak menjadi blocking scenario bc-6 (error 401 ketika klik button delete)
+<b class="fc"><i class="no-highlight">81</i>&nbsp;        driver.navigate().refresh();</b>
+<i class="no-highlight">82</i>&nbsp;
+<i class="no-highlight">83</i>&nbsp;//--board BC-6
+<b class="fc"><i class="no-highlight">84</i>&nbsp;        String URL2 = driver.getCurrentUrl();</b>
+<b class="fc"><i class="no-highlight">85</i>&nbsp;        Assert.assertEquals(URL2, &quot;https://staging.cicle.app/cards/61724cdabc729e69d874ff84&quot;);</b>
+<b class="fc"><i class="no-highlight">86</i>&nbsp;        WebElement btnDelete = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(&quot;/html/body/div[5]/div/div/div[2]/div/div/div[1]/div[7]/div/div[1]/div[3]/div/div[2]/div[4]/div[3]/p&quot;)));</b>
+<b class="fc"><i class="no-highlight">87</i>&nbsp;        btnDelete.click();</b>
+<b class="fc"><i class="no-highlight">88</i>&nbsp;        String exp1 = &quot;Deleting a comment is forever. There is no undo.&quot;;</b>
+<b class="fc"><i class="no-highlight">89</i>&nbsp;        WebElement m1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(&quot;/html/body/div[5]/div/div/div[2]/div/div/div[1]/div[7]/div/div[1]/div[3]/div/div[2]/div[4]/div[4]/div[3]&quot;)));</b>
+<b class="fc"><i class="no-highlight">90</i>&nbsp;        m1.isDisplayed();</b>
+<b class="fc"><i class="no-highlight">91</i>&nbsp;        String act1 = m1.getText();</b>
+<b class="fc"><i class="no-highlight">92</i>&nbsp;        System.out.println(&quot;Message is: Deleting a comment is forever. There is no undo &quot;+ act1);</b>
+<i class="no-highlight">93</i>&nbsp;        //verify message with Assertion
+<b class="fc"><i class="no-highlight">94</i>&nbsp;        Assert.assertEquals(exp1, act1);</b>
+<b class="fc"><i class="no-highlight">95</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">96</i>&nbsp;        WebElement btnDelete2 = driver.findElement(By.xpath(&quot;/html/body/div[5]/div/div/div[2]/div/div/div[1]/div[7]/div/div[1]/div[3]/div/div[2]/div[4]/div[4]/div[4]/button/div&quot;));</b>
+<b class="fc"><i class="no-highlight">97</i>&nbsp;        btnDelete2.click();</b>
+<b class="fc"><i class="no-highlight">98</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">99</i>&nbsp;        String exp2 = &quot;delete comment is success&quot;;</b>
+<b class="fc"><i class="no-highlight">100</i>&nbsp;        WebElement m2 = wait.until(ExpectedConditions.presenceOfElementLocated(By.id(&quot;notistack-snackbar&quot;)));</b>
+<b class="fc"><i class="no-highlight">101</i>&nbsp;        m2.isDisplayed();</b>
+<b class="fc"><i class="no-highlight">102</i>&nbsp;        String act2 = m2.getText();</b>
+<b class="fc"><i class="no-highlight">103</i>&nbsp;        System.out.println(&quot;Message is: delete comment is success &quot;+ act2);</b>
+<i class="no-highlight">104</i>&nbsp;        //verify message with Assertion
+<b class="fc"><i class="no-highlight">105</i>&nbsp;        Assert.assertEquals(exp2, act2);</b>
+<b class="fc"><i class="no-highlight">106</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">107</i>&nbsp;        WebElement test = driver.findElement(By.xpath(&quot;/html/body/div[5]/div/div/div[2]/div/div/div[2]/div[1]/p&quot;));</b>
+<b class="fc"><i class="no-highlight">108</i>&nbsp;        Actions actions = new Actions(driver);</b>
+<b class="fc"><i class="no-highlight">109</i>&nbsp;        actions.moveToElement(test);</b>
+<b class="fc"><i class="no-highlight">110</i>&nbsp;        actions.perform();</b>
+<b class="fc"><i class="no-highlight">111</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">112</i>&nbsp;        WebElement closeCards1 = driver.findElement(By.xpath(&quot;/html/body/div[5]/div/div/div[1]/button/span[1]&quot;));</b>
+<b class="fc"><i class="no-highlight">113</i>&nbsp;        closeCards1.click();</b>
+<b class="fc"><i class="no-highlight">114</i>&nbsp;        Thread.sleep(3000);</b>
+<i class="no-highlight">115</i>&nbsp;
+<i class="no-highlight">116</i>&nbsp;//--board BC-5
+<b class="fc"><i class="no-highlight">117</i>&nbsp;        String URL3 = driver.getCurrentUrl();</b>
+<b class="fc"><i class="no-highlight">118</i>&nbsp;        Assert.assertEquals(URL3, &quot;https://staging.cicle.app/boards/615e9f8ed3cd857e473ca500&quot;);</b>
+<b class="fc"><i class="no-highlight">119</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">120</i>&nbsp;        WebElement cardA1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(&quot;//*[@id=\&quot;listcard_content-1\&quot;]/div/div/div/a&quot;)));</b>
+<b class="fc"><i class="no-highlight">121</i>&nbsp;        cardA1.click();</b>
+<b class="fc"><i class="no-highlight">122</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">123</i>&nbsp;        WebElement iconPlus = driver.findElement(By.cssSelector(&quot;div.Members_plusButton__26WlU &gt; svg.MuiSvgIcon-root &gt; path&quot;));</b>
+<b class="fc"><i class="no-highlight">124</i>&nbsp;        iconPlus.click();</b>
+<b class="fc"><i class="no-highlight">125</i>&nbsp;        Thread.sleep(3000);</b>
+<i class="no-highlight">126</i>&nbsp;//        WebElement searchMembers = driver.findElement(By.cssSelector(&quot;input.form-control&quot;));
+<i class="no-highlight">127</i>&nbsp;//        searchMembers.sendKeys(&quot;Resa Nirmaya Sari&quot;);
+<i class="no-highlight">128</i>&nbsp;//        Thread.sleep(3000);
+<i class="no-highlight">129</i>&nbsp;//        searchMembers.click();
+<b class="fc"><i class="no-highlight">130</i>&nbsp;        WebElement members = driver.findElement(By.xpath(&quot;/html/body/div[5]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/div[4]/div[3]&quot;));</b>
+<b class="fc"><i class="no-highlight">131</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">132</i>&nbsp;        members.click();</b>
+<b class="fc"><i class="no-highlight">133</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">134</i>&nbsp;        WebElement iconClose = driver.findElement(By.xpath(&quot;/html/body/div[5]/div/div/div[1]/button/span[1]&quot;));</b>
+<b class="fc"><i class="no-highlight">135</i>&nbsp;        iconClose.click();</b>
+<b class="fc"><i class="no-highlight">136</i>&nbsp;        Thread.sleep(3000);</b>
+<i class="no-highlight">137</i>&nbsp;
+<i class="no-highlight">138</i>&nbsp;//--board BC-12
+<b class="fc"><i class="no-highlight">139</i>&nbsp;        String URL4 = driver.getCurrentUrl();</b>
+<b class="fc"><i class="no-highlight">140</i>&nbsp;        Assert.assertEquals(URL4, &quot;https://staging.cicle.app/boards/615e9f8ed3cd857e473ca500&quot;);</b>
+<b class="fc"><i class="no-highlight">141</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">142</i>&nbsp;        WebElement from = driver.findElement(By.xpath(&quot;//*[@id=\&quot;listcard_content-0\&quot;]/div[1]/div/div&quot;));</b>
+<b class="fc"><i class="no-highlight">143</i>&nbsp;        Actions action = new Actions(driver);</b>
+<b class="fc"><i class="no-highlight">144</i>&nbsp;        action.dragAndDropBy(from,252, 95).clickAndHold().build().perform();</b>
+<b class="fc"><i class="no-highlight">145</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">146</i>&nbsp;        driver.navigate().refresh();</b>
+<i class="no-highlight">147</i>&nbsp;
+<i class="no-highlight">148</i>&nbsp;//--board BC-7
+<b class="fc"><i class="no-highlight">149</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">150</i>&nbsp;        WebElement iconNotif = driver.findElement(By.xpath(&quot;//*[@id=\&quot;root\&quot;]/nav/div/div[1]/div[2]&quot;));</b>
+<b class="fc"><i class="no-highlight">151</i>&nbsp;        iconNotif.click();</b>
+<b class="fc"><i class="no-highlight">152</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">153</i>&nbsp;        WebElement viewAllnotif = driver.findElement(By.xpath(&quot;//*[@id=\&quot;root\&quot;]/nav/div/div[1]/div[3]/div[3]/div[2]/button&quot;));</b>
+<b class="fc"><i class="no-highlight">154</i>&nbsp;        viewAllnotif.click();</b>
+<b class="fc"><i class="no-highlight">155</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">156</i>&nbsp;        String actualTitle1 = driver.getTitle();</b>
+<b class="fc"><i class="no-highlight">157</i>&nbsp;        String expectedTitle1 = &quot;Notifications&quot;;</b>
+<b class="fc"><i class="no-highlight">158</i>&nbsp;        if(actualTitle1.equalsIgnoreCase(expectedTitle1))</b>
+<b class="fc"><i class="no-highlight">159</i>&nbsp;            System.out.println(&quot;Title Matched&quot;);</b>
+<i class="no-highlight">160</i>&nbsp;        else
+<b class="nc"><i class="no-highlight">161</i>&nbsp;            System.out.println(&quot;Title didn&#39;t match&quot;);</b>
+<b class="fc"><i class="no-highlight">162</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">163</i>&nbsp;        WebElement notifGroupchats = driver.findElement(By.xpath(&quot;//*[@id=\&quot;notification-page\&quot;]/div/div[2]/div/div/div[1]/div/a[2]/div/div[2]/div[1]/div[1]/h1&quot;));</b>
+<b class="fc"><i class="no-highlight">164</i>&nbsp;        notifGroupchats.click();</b>
+<b class="fc"><i class="no-highlight">165</i>&nbsp;        Thread.sleep(3000);</b>
+<b class="fc"><i class="no-highlight">166</i>&nbsp;        String URL5 = driver.getCurrentUrl();</b>
+<b class="fc"><i class="no-highlight">167</i>&nbsp;        Assert.assertEquals(URL5, &quot;https://staging.cicle.app/group-chats/615e9f8ed3cd859f6f3ca502&quot;);</b>
+<i class="no-highlight">168</i>&nbsp;    }
+<i class="no-highlight">169</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-12-14 09:51</div>
+</div>
+</body>
+</html>
